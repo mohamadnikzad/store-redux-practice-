@@ -25,10 +25,10 @@ function App() {
         <Navbar />
         <Container>
           <Switch>
-            <Route path='/productDetail:id'>
-              <ProductDetail />
+            <Route path='/productDetail/:id'>
+              {loading ? 'loading . . .' : <ProductDetail />}
             </Route>
-            <Route path='/'>
+            <Route path='/' exact>
               {loading ? 'loading . . .' : <ProductList />}
             </Route>
           </Switch>

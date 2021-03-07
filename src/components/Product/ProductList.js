@@ -15,10 +15,11 @@ const ProductList = () => {
 
     return (
         <>
-            <Typography gutterBottom variant='h2'>ProductList</Typography>
+            <Typography className='page__title' gutterBottom variant='h2'>ProductList</Typography>
             <Grid container justify="center" spacing={4}>
                 {productss}
             </Grid>
+
         </>
     )
 }

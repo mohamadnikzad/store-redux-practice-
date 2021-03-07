@@ -1,3 +1,6 @@
 * {
   margin: 0;
 }
+.page__title {
+  padding: 50px 0;
+}

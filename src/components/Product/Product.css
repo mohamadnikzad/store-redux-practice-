@@ -7,11 +7,6 @@
   height: 250px;
   object-fit: contain;
 }
-.product__desc {
-  height: 100px;
-  overflow: hidden;
-}
-
 /* .product__divider {
   margin-bottom: 10px;
 } */
