@@ -2,7 +2,7 @@ import { Breadcrumbs, Divider, Grid, IconButton, Typography } from '@material-ui
 import { AddCircleOutlineRounded, CategoryRounded, DescriptionRounded } from '@material-ui/icons'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { fetchProductDetail } from '../../actions/productActions/productActions'
 import { withRouter } from 'react-router'
 
@@ -10,7 +10,6 @@ const ProductDetail = ({ match }) => {
     const product = useSelector(state => state.productDetail)
     const loading = useSelector(state => state.loading)
     const dispatch = useDispatch()
-    const histroy = useHistory()
     const productId = match.params.id
 
     useEffect(() => {
@@ -18,16 +17,11 @@ const ProductDetail = ({ match }) => {
 
     }, [dispatch, productId])
 
-    const handleClick = () => {
-        histroy.push('/')
-    }
-
-
     return (
         <>
             <Typography className='page__title' variant='h3' component='h1'>Product Detail</Typography>
             <Breadcrumbs aria-label="breadcrumb">
-                <Link color="inherit" path="/" onClick={handleClick}>Products </Link>
+                <Link color="inherit" to='/'>Products </Link>
                 <Typography color="textPrimary">ProductDetail</Typography>
             </Breadcrumbs>
             {loading ? 'loading...' : product ? (<Grid container justify='center'>
