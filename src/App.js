@@ -10,7 +10,7 @@ import ProductDetail from './components/ProductDetail/ProductDetail';
 
 
 function App() {
-  const loading = useSelector(state => state.loading)
+  const loading = useSelector(state => state.products.loading)
   const dispach = useDispatch()
   useEffect(() => {
     dispach(fetchProduct())

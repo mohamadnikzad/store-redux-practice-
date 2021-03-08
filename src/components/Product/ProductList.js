@@ -2,10 +2,8 @@ import {Grid, Paper, Tab, Tabs, Typography} from '@material-ui/core';
 import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
 import Product from './Product';
-// import {motion} from 'framer-motion';
-
 const ProductList = () => {
-  const products = useSelector((state) => state.product);
+  const products = useSelector((state) => state.products.product);
   const [category, setCategory] = useState('all');
   const handleChange = (e, newCategory) => {
     setCategory(newCategory);
@@ -14,7 +12,6 @@ const ProductList = () => {
   let filterdProducts;
   switch (category) {
     case 'men clothing':
-      console.log('hi');
       filterdProducts = products.filter(
         (product) => product.category === 'men clothing'
       );
@@ -56,6 +53,7 @@ const ProductList = () => {
           value={category}
           onChange={handleChange}
           indicatorColor="secondary"
+          textColor="secondary"
         >
           <Tab label="All" value="all" />
           <Tab label="men clothing" value="men clothing" />

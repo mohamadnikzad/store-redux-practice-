@@ -1,17 +1,24 @@
-import { Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, Typography } from '@material-ui/core'
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, Typography } from '@material-ui/core'
 import React from 'react'
 import './Product.css'
 import { useHistory } from 'react-router-dom'
 import { AddCircleOutlineRounded } from '@material-ui/icons'
 import { motion } from "framer-motion"
+import { useDispatch } from 'react-redux'
+import { addToBasket } from '../../actions/basketActions/basketActions'
 
 const Product = ({ product }) => {
+    const dispatch = useDispatch()
     let str = product.title
     let str1 = str.split(" ")
     let productTitle = `${str1[0]}  ${str1[1]}  ${str1[2]}`
     const histroy = useHistory()
     const productDetailHandler = () => {
         histroy.push(`/productDetail/${product.id}`)
+    }
+
+    const addTobasketHandler = () => {
+        dispatch(addToBasket(product))
     }
 
     return (
@@ -34,10 +41,7 @@ const Product = ({ product }) => {
 
                 </CardActionArea>
                 <CardActions >
-                    <IconButton color='primary'  >
-                        <AddCircleOutlineRounded />
-                        <Typography variant='body2'>Add To Basket</Typography>
-                    </IconButton>
+                    <Button color='primary' variant='contained' startIcon={<AddCircleOutlineRounded />} fullWidth onClick={addTobasketHandler}>ADD TO BASKET</Button>
                 </CardActions>
             </Card>
         </motion.div>

@@ -1,3 +1,16 @@
 .basket__btn {
   margin-left: auto !important;
 }
+
+.MuiDrawer-paperAnchorRight {
+  overflow-x: hidden !important;
+}
+
+.drawer__subtotal {
+  text-align: center;
+  margin-top: 15px !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  padding-bottom: 15px !important;
+  border-bottom: 1px solid rgb(73, 73, 73);
+}

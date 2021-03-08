@@ -7,8 +7,8 @@ import { fetchProductDetail } from '../../actions/productActions/productActions'
 import { withRouter } from 'react-router'
 
 const ProductDetail = ({ match }) => {
-    const product = useSelector(state => state.productDetail)
-    const loading = useSelector(state => state.loading)
+    const product = useSelector(state => state.products.productDetail)
+    const loading = useSelector(state => state.products.loading)
     const dispatch = useDispatch()
     const productId = match.params.id
 
