@@ -1,4 +1,4 @@
-import { Breadcrumbs, Button, Divider, Grid, IconButton, Typography } from '@material-ui/core'
+import { Breadcrumbs, Button, Divider, Grid, Typography } from '@material-ui/core'
 import { AddCircleOutlineRounded, CategoryRounded, DescriptionRounded } from '@material-ui/icons'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,22 +9,20 @@ import { addToBasket } from '../../actions/basketActions/basketActions'
 import Product from '../Product/Product'
 
 const ProductDetail = ({ match }) => {
-    const product = useSelector(state => state.products.productDetail)
-    const mainP = useSelector(state => state.products.product)
-    const relatedProducts = useSelector(state => state.products.productsByCat)
-    const loading = useSelector(state => state.products.loading)
+    const singleProduct = useSelector(state => state.singleProduct)
+    const { product, loading } = singleProduct
+    const relatedProducts = useSelector(state => state.filterdProduct)
+    const { filterdProducts, lloading } = relatedProducts
     const dispatch = useDispatch()
-    const pCategory = product?.category
+    const productCategory = product?.category
     const productId = match.params.id
-    console.log(mainP)
 
     useEffect(() => {
         dispatch(fetchProductDetail(productId))
-    }, [productId])
-    useEffect(() => {
-        dispatch(fetchProductByCategory(pCategory))
-    }, [pCategory])
-    const relatedProductsMap = relatedProducts?.map(item =>
+        dispatch(fetchProductByCategory(productCategory))
+    }, [productId, productCategory, dispatch])
+
+    const relatedProductsMap = filterdProducts?.map(item =>
         <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
             <Product product={item} />
         </Grid>)
@@ -57,9 +55,9 @@ const ProductDetail = ({ match }) => {
             </Grid>
                 <Typography className='page__title' variant='h4'>Related Products</Typography>
 
-                <Grid container spacing={4}>
+                {    !lloading ? <Grid container spacing={4}>
                     {relatedProductsMap}
-                </Grid>
+                </Grid> : "Loading ..."}
             </>
             ) : 'loading ...'}
         </>

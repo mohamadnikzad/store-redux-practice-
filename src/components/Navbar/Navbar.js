@@ -13,12 +13,9 @@ const Navbar = () => {
         return <Grid item key={item.id}><BasketItem item={item} container spacing={2} /></Grid>
     })
     const subtotal = basket.reduce((a, c) => {
-        console.log("this is curent val", (c.price))
-        console.log("this is acc", a)
         a = a + c.price
         return a
     }, 0)
-    console.log(subtotal)
     return (
         <AppBar color='inherit' position='sticky'>
             <Container>

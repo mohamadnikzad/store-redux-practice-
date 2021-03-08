@@ -6,11 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux';
-import productReducer from './reducers/productReducers/productReducer';
+import { productCategoryReducer, productDetailReducer, productReducer } from './reducers/productReducers/productReducer';
 import basketReducer from './reducers/basketReducers/basketReducers';
 
 const rootReducer = combineReducers({
   products: productReducer,
+  singleProduct: productDetailReducer,
+  filterdProduct: productCategoryReducer,
   basket: basketReducer
 
 })

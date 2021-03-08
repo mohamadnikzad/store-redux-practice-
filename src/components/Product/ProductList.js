@@ -41,8 +41,6 @@ const ProductList = () => {
       <Product product={product} />
     </Grid>
   ));
-  console.log(filterdProducts);
-  console.log(category);
   return (
     <>
       <Typography className="page__title" gutterBottom variant="h2">

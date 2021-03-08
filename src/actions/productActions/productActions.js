@@ -1,12 +1,7 @@
 import axios from "axios"
 import { GET_PRODUCT_CATEGORY_FAIL, GET_PRODUCT_CATEGORY_REQ, GET_PRODUCT_CATEGORY_SUCSESS, GET_PRODUCT_DETAIL_FAIL, GET_PRODUCT_DETAIL_REQ, GET_PRODUCT_DETAIL_SUCSESS, GET_PRODUCT_FAIL, GET_PRODUCT_REQUEST, GET_PRODUCT_SUCSESS } from "./types"
 
-// const fetchData = (data) => {
-//     return {
-//         type: GET_PRODUCT_SUCSESS,
-//         payload: data
-//     }
-// }
+
 
 const fetchProduct = () => async (dispach) => {
     try {
