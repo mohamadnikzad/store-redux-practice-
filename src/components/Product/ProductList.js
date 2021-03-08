@@ -1,6 +1,6 @@
-import {Grid, Paper, Tab, Tabs, Typography} from '@material-ui/core';
-import React, {useState} from 'react';
-import {useSelector} from 'react-redux';
+import { Grid, Paper, Tab, Tabs, Typography } from '@material-ui/core';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Product from './Product';
 const ProductList = () => {
   const products = useSelector((state) => state.products.product);
@@ -38,7 +38,7 @@ const ProductList = () => {
 
   const pr = filterdProducts?.map((product) => (
     <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
-      <Product layout product={product} />
+      <Product product={product} />
     </Grid>
   ));
   console.log(filterdProducts);
@@ -48,7 +48,7 @@ const ProductList = () => {
       <Typography className="page__title" gutterBottom variant="h2">
         ProductList
       </Typography>
-      <Paper style={{marginBottom: 15}}>
+      <Paper style={{ marginBottom: 15 }}>
         <Tabs
           value={category}
           onChange={handleChange}
