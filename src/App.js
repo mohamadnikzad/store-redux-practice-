@@ -3,10 +3,10 @@ import { Container } from '@material-ui/core';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import fetchProduct from './actions/productActions/productActions';
 import Navbar from './components/Navbar/Navbar';
 import ProductList from './components/Product/ProductList';
 import ProductDetail from './components/ProductDetail/ProductDetail';
+import fetchProduct from './redux/actions/productActions/productActions';
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
     return () => {
       // cleanup
     }
-  }, [])
+  }, [dispach])
 
   return (
     <div className="App">

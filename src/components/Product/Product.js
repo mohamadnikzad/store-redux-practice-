@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { AddCircleOutlineRounded } from '@material-ui/icons'
 import { motion } from "framer-motion"
 import { useDispatch } from 'react-redux'
-import { addToBasket } from '../../actions/basketActions/basketActions'
+import { addToBasket } from '../../redux/actions/basketActions/basketActions'
 
 const Product = ({ product }) => {
     const dispatch = useDispatch()

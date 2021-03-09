@@ -4,7 +4,7 @@ import { Grid, Paper, Typography } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch } from 'react-redux';
-import { removeFromBasket } from '../../actions/basketActions/basketActions'
+import { removeFromBasket } from '../../redux/actions/basketActions/basketActions'
 
 const BasketItem = ({ item }) => {
     const dispacth = useDispatch()

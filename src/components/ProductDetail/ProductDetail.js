@@ -3,10 +3,11 @@ import { AddCircleOutlineRounded, CategoryRounded, DescriptionRounded } from '@m
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { fetchProductByCategory, fetchProductDetail } from '../../actions/productActions/productActions'
+import { fetchProductByCategory, fetchProductDetail } from '../../redux/actions/productActions/productActions'
 import { withRouter } from 'react-router'
-import { addToBasket } from '../../actions/basketActions/basketActions'
+
 import Product from '../Product/Product'
+import { addToBasket } from '../../redux/actions/basketActions/basketActions'
 
 const ProductDetail = ({ match }) => {
     const singleProduct = useSelector(state => state.singleProduct)
