@@ -1,23 +1,18 @@
-
-import { Container } from '@material-ui/core';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {Container} from '@material-ui/core';
+import {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import ProductList from './components/Product/ProductList';
 import ProductDetail from './components/ProductDetail/ProductDetail';
-import fetchProduct from './redux/actions/productActions/productActions';
-
+import {fetchAsyncProduct} from './redux/slices/product/ProductsSlice';
 
 function App() {
-  const loading = useSelector(state => state.products.loading)
-  const dispach = useDispatch()
+  const loading = useSelector((state) => state.products.loading);
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispach(fetchProduct())
-    return () => {
-      // cleanup
-    }
-  }, [dispach])
+    dispatch(fetchAsyncProduct());
+  }, []);
 
   return (
     <div className="App">
@@ -25,11 +20,11 @@ function App() {
         <Navbar />
         <Container>
           <Switch>
-            <Route path='/productDetail/:id'>
+            <Route path="/productDetail/:cat/:id">
               {loading ? 'loading . . .' : <ProductDetail />}
             </Route>
-            <Route path='/' exact>
-              {loading ? 'loading . . .' : <ProductList />}
+            <Route path="/" exact>
+              <ProductList />
             </Route>
           </Switch>
         </Container>
